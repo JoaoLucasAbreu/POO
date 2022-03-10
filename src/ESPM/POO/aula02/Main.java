@@ -1,25 +1,31 @@
 package ESPM.POO.aula02;
-import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
 
-        Pessoa p[] = new Pessoa[2];
+        Pessoa p1 = new Pessoa("Humberto");
+        p1.idade = 15;
+        p1.salario = 800.12;
+
+        Pessoa p2 = new Pessoa();
+        p2.nome = "Sandra";
+        p2.idade = 22;
+        p2.salario = 45000;
+
+
+        Pessoa p3 = p1;
+        System.out.println(p3.nome);
+        p3.nome = "Selmini";
+        System.out.println(p1.nome);
+
+        p1.imprimir();
+        p2.imprimir();
+        p3.imprimir();
+
+        System.out.println(p1 == p2);
+        System.out.println(p1 == p3);
         
-
-        for (int i = 0; i < 2; i++) {
-            p[i] = new Pessoa();
-
-            System.out.println("Nome: ");
-            p[i].nome = scan.next();
-            System.out.println("Idade: ");
-            p[i].idade = scan.nextInt();
-            System.out.println("Salario: ");
-            p[i].salario = scan.nextDouble();
-
-        }
-
     }
     
 }
