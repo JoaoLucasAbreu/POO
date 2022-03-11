@@ -17,6 +17,6 @@ public class MainArgs {
     // Compilando na mao:
     // javac espm/poo/aula03/MainArgs.java
     // Executando na mao:
-    // java espm.poo.aula03.MainArgs ola mundo
+    // java espm.poo.aula03.MainArgs ola mundo!!!
     
 }
