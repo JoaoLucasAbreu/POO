@@ -2,21 +2,22 @@ package ESPM.POO.aula02;
 
 public class Pessoa {
 
-    String nome;
-    int idade;
-    int cpf;
-    double salario;
+    public String nome;
+    public int idade;
+    public double salario;
 
-    public static void main(String[] args) {
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
 
-        System.out.println("Ola");
+    public Pessoa() {
         
     }
 
     public void imprimir() {
-        
         System.out.println("Nome: " + nome);
-        System.out.println("Idade: " + idade);
-        System.out.println("Salário: " + salario);
+        System.out.println("idade: " + idade);
+        System.out.println("salário: " + salario);
     }
+
 }
