@@ -27,6 +27,9 @@ import java.util.Scanner;
         } else if ("add".equals(input)) {
             add(banco);
 
+        } else if ("del".equals(input)) {
+            del(banco);
+
         } else if ("find".equals(input)) {
             find(banco);
 
@@ -73,21 +76,30 @@ import java.util.Scanner;
 
     private static void find(Banco banco) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("CPF do Cliente: ");
+        System.out.print("Nome: ");
+        String nome = scan.nextLine();
+        System.out.print("CPF: ");
         String cpf = scan.nextLine();
-        
 
-        if(banco.getClientes().contains(cpf)) {
-            System.out.println("Cliente localizado");
-        } else {
-            System.out.println("Cliente não localizado");
-        }
+        Cliente c = new Cliente();
+        c.setCpf(cpf);
+        c.setNome(nome);
 
-        
+        banco.findClientes(c);
     }
 
     private static void del(Banco banco) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Nome: ");
+        String nome = scan.nextLine();
+        System.out.print("CPF: ");
+        String cpf = scan.nextLine();
 
+        Cliente c = new Cliente();
+        c.setNome(nome);
+        c.setCpf(cpf);
+
+        banco.remCliente(c);
     }
      
  }

@@ -20,6 +20,10 @@ public class Banco {
         this.clientes.add(c);
     }
 
+    public void remCliente(Cliente c) {
+        this.clientes.remove(c);
+    }
+
     public String getNome() {
         return nome;
     }
@@ -27,6 +31,21 @@ public class Banco {
     public List<Cliente> getClientes() {
         return clientes;
     }
+
+    public void findClientes(Cliente c) {
+
+        for (int i = 0; i < clientes.size(); i++) {
+            
+            if (clientes.contains(c)) {
+                System.out.println("Está na lista");
+            } else {
+                System.out.println("Não está na lista");
+            }
+        }
+
+    }
+
+
 
     
 }
