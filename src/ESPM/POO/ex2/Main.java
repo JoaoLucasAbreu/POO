@@ -27,6 +27,9 @@ import java.util.Scanner;
         } else if ("add".equals(input)) {
             add(banco);
 
+        } else if ("find".equals(input)) {
+            find(banco);
+
         } else {
             System.err.println("Comando Inválido");
 
@@ -68,12 +71,23 @@ import java.util.Scanner;
         banco.addCliente(c);
     }
 
-    private static void del(Banco banco) {
+    private static void find(Banco banco) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("CPF do Cliente: ");
+        String cpf = scan.nextLine();
+        
 
+        if(banco.getClientes().contains(cpf)) {
+            System.out.println("Cliente localizado");
+        } else {
+            System.out.println("Cliente não localizado");
+        }
+
+        
     }
 
-    private static void find() {
-        
+    private static void del(Banco banco) {
+
     }
      
  }
