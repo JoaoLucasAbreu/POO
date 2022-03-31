@@ -11,33 +11,39 @@ import java.util.Scanner;
         Scanner scan = new Scanner(System.in);
 
         while (!exit) {
-        System.out.print("ESPM> ");
-        String input = scan.nextLine().trim().toLowerCase();
 
-        if ("".equals(input)) {
-        } else if ("exit".equals(input)) {   //.replace(" ", "")
-            exit = true;
+        try {
+            System.out.print("ESPM> ");
+            String input = scan.nextLine().trim().toLowerCase();
 
-        } else if("help".equals(input)) {
-            help();
+            if ("".equals(input)) {
+            } else if ("exit".equals(input)) {   //.replace(" ", "")
+                exit = true;
 
-        } else if ("list".equals(input)) {
-            list(banco);
+            } else if("help".equals(input)) {
+                help();
 
-        } else if ("add".equals(input)) {
-            add(banco);
+            } else if ("list".equals(input)) {
+                list(banco);
 
-        } else if ("del".equals(input)) {
-            del(banco);
+            } else if ("add".equals(input)) {
+                add(banco);
 
-        } else if ("find".equals(input)) {
-            find(banco);
+            } else if ("del".equals(input)) {
+                del(banco);
 
-        } else {
-            System.err.println("Comando Inválido");
+            } else if ("find".equals(input)) {
+                throw new UnsupportedOperationException();
+                //find(banco);
 
+            } else {
+                System.err.println("Comando Inválido");
+
+            }
+            
+        } catch (UnsupportedOperationException e) {
+            e.printStackTrace();
         }
-        
         }
 
         System.out.println("Bye Bye!");

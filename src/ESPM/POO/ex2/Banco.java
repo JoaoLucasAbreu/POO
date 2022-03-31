@@ -8,7 +8,7 @@ public class Banco {
     private String nome;
 
     private List<Cliente> clientes;
-    private List<Conta> contas;
+    public List<Conta> contas;
 
     public Banco(String nome) {
         this.nome = nome;
@@ -18,6 +18,7 @@ public class Banco {
 
     public void addCliente(Cliente c) {
         this.clientes.add(c);
+        this.contas.add(c.getConta());
     }
 
     public void remCliente(Cliente c) {
