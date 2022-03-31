@@ -35,7 +35,7 @@ public class Cliente {
         return "-------------" + 
                "\nNome: " + nome + 
                 "\nCPF: " + cpf + 
-                "\nConta: " + conta + 
+                "\nConta: " + conta.getSaldo() + 
                 "\n-------------";
     }
     
