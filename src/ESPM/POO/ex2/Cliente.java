@@ -3,7 +3,6 @@ package ESPM.POO.ex2;
 public class Cliente {
 
     private String nome;
-    private String cpf;
     private Conta conta;
 
     public Cliente() {
@@ -14,16 +13,8 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public String getNome() {
         return nome;
-    }
-
-    public String getCpf() {
-        return cpf;
     }
 
     public Conta getConta() {
@@ -34,7 +25,6 @@ public class Cliente {
     public String toString() {
         return "-------------" + 
                "\nNome: " + nome + 
-                "\nCPF: " + cpf + 
                 "\nConta: " + conta.getSaldo() + 
                 "\n-------------";
     }

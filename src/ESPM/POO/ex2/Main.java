@@ -75,7 +75,8 @@ import java.util.Scanner;
 
         Cliente c = new Cliente();
         c.setNome(nome);
-        c.setCpf(cpf);
+        // TODO: quebrou o o codigo
+        // c.setCpf(cpf);
 
         banco.addCliente(c);
     }
@@ -88,7 +89,8 @@ import java.util.Scanner;
         String cpf = scan.nextLine();
 
         Cliente c = new Cliente();
-        c.setCpf(cpf);
+        // TODO: quebrou o o codigo
+        // c.setCpf(cpf);
         c.setNome(nome);
 
         banco.findClientes(c);
@@ -103,7 +105,8 @@ import java.util.Scanner;
 
         Cliente c = new Cliente();
         c.setNome(nome);
-        c.setCpf(cpf);
+        // TODO: quebrou o o codigo
+        // c.setCpf(cpf);
 
         banco.remCliente(c);
     }
