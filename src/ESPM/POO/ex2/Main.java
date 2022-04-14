@@ -1,7 +1,7 @@
 package ESPM.POO.ex2;
 import java.util.Scanner;
 
- public class Main {
+ public final class Main {
 
     private static Banco banco = null;
     public static void main(String[] args) {
@@ -62,23 +62,68 @@ import java.util.Scanner;
     }
 
     private static void list(Banco banco) {
-        banco.getClientes().forEach(c -> System.out.println(c.toString()));
-    
+        banco.getClientes().forEach(c -> {
+
+            if (c instanceof PessoaFisica) {
+                PessoaFisica pf = (PessoaFisica) (c);
+                System.out.println(pf);
+
+            } else if(c instanceof PessoaJuridica) {
+               PessoaJuridica pj = (PessoaJuridica) (c);
+               System.out.println(pj);
+
+            }
+        });
     }
 
     private static void add(Banco banco) {
         Scanner scan = new Scanner(System.in);
         System.out.print("Nome: ");
         String nome = scan.nextLine();
-        System.out.print("CPF: ");
-        String cpf = scan.nextLine();
 
-        Cliente c = new Cliente();
+        TipoPessoa tipoPessoa = inputTipoCliente();
+
+        Cliente c = null;
+
+        switch (tipoPessoa) {
+            case Fisica:
+                System.out.print("CPF: ");
+                String cpf = scan.nextLine();
+
+                PessoaFisica pf = new PessoaFisica();
+                pf.setCpf(cpf);
+                c = pf;
+                break;
+
+            case Juridica:
+                System.out.print("CNPJ: ");
+                String cnpj = scan.nextLine();
+
+                PessoaJuridica pj = new PessoaJuridica();
+                pj.setCnpj(cnpj);
+                c = pj;
+                break;
+        }
+
         c.setNome(nome);
-        // TODO: quebrou o o codigo
-        // c.setCpf(cpf);
 
         banco.addCliente(c);
+    }
+
+    private static TipoPessoa inputTipoCliente() {
+        Scanner scan = new Scanner(System.in);
+        String tp = "";
+
+        while (!tp.equals("j") && !tp.equals("f")) {
+            System.out.print("Tipo do Cliente? [F|J] ");
+            tp = scan.nextLine().toLowerCase();
+            
+            if (!tp.equals("j") && !tp.equals("f")) {
+                System.err.println("F: Física | J: Jurídica");
+            }
+        }
+
+        return tp.equals("f") ? TipoPessoa.Fisica : TipoPessoa.Juridica;
     }
 
     private static void find(Banco banco) {
@@ -88,12 +133,12 @@ import java.util.Scanner;
         System.out.print("CPF: ");
         String cpf = scan.nextLine();
 
-        Cliente c = new Cliente();
+        //Cliente c = new Cliente();
         // TODO: quebrou o o codigo
         // c.setCpf(cpf);
-        c.setNome(nome);
+       // c.setNome(nome);
 
-        banco.findClientes(c);
+        //banco.findClientes(c);
     }
 
     private static void del(Banco banco) {
@@ -103,12 +148,12 @@ import java.util.Scanner;
         System.out.print("CPF: ");
         String cpf = scan.nextLine();
 
-        Cliente c = new Cliente();
-        c.setNome(nome);
+        //Cliente c = new Cliente();
+        //c.setNome(nome);
         // TODO: quebrou o o codigo
         // c.setCpf(cpf);
 
-        banco.remCliente(c);
+        //banco.remCliente(c);
     }
      
  }
